@@ -26,18 +26,18 @@
 			<artifactId>shabao-base-mybatis</artifactId>
 			<version>0.0.1</version>
 		</dependency>
-		<!-- 共享包
-		<dependency>
-			<groupId>com.xiaoshabao.bill</groupId>
-			<artifactId>shabao-bill-share</artifactId>
-			<version>0.0.1</version>
-		</dependency>
- 		-->
+		<!-- 共享包 <dependency> <groupId>com.xiaoshabao.bill</groupId> <artifactId>shabao-bill-share</artifactId> 
+			<version>0.0.1</version> </dependency> -->
 		<!-- 引入测试包 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<!-- 切面 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 		<!-- 热部署 -->
 		<dependency>
