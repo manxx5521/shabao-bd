@@ -5,6 +5,10 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 缓存锁注解
+ * <p>
+ * 在request对象中获取一个名字是 token() 的对象，根据此对象判断重复。
+ * 
+ * </p>
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
@@ -15,7 +19,7 @@ public @interface CacheLock {
      * redis 锁key的前缀
      * @return redis 锁key的前缀
      */
-	String value();
+	String value() default "cacheLock";
 	
 	/**
      * token传递的字段名

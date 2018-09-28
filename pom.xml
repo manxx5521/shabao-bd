@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.xiaoshabao.bill</groupId>
 	<artifactId>shabao-bd</artifactId>
-	<version>0.0.1</version>
+	<!-- <version>0.0.1</version> -->
 	<name>shabao-bd</name>
 	<description>bd</description>
 
@@ -14,17 +14,16 @@
 	</properties>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.4.RELEASE</version>
+		<groupId>com.xiaoshabao.base</groupId>
+		<artifactId>shabao-base-parent</artifactId>
+		<version>0.0.1</version>
 	</parent>
 
 	<dependencies>
 		<!-- 基础包 -->
 		<dependency>
-			<groupId>com.xiaoshabao</groupId>
+			<groupId>com.xiaoshabao.base</groupId>
 			<artifactId>shabao-base-mybatis</artifactId>
-			<version>0.0.1</version>
 		</dependency>
 		<!-- 共享包 <dependency> <groupId>com.xiaoshabao.bill</groupId> <artifactId>shabao-bill-share</artifactId> 
 			<version>0.0.1</version> </dependency> -->
@@ -33,11 +32,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<!-- 切面 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 		<!-- 热部署 -->
 		<dependency>
@@ -63,12 +57,10 @@
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
-			<version>2.7.0</version>
 		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.7.0</version>
 		</dependency>
 	</dependencies>
 

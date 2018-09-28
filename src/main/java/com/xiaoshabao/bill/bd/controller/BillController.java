@@ -16,8 +16,6 @@ import com.xiaoshabao.bill.bd.entity.Bill;
 import com.xiaoshabao.bill.bd.service.BillService;
 
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 
 /**
@@ -48,9 +46,7 @@ public class BillController {
 	@ApiOperation(value = "新增单据列表", notes = "返回排序的单据列表",produces = "application/json")
 	@PostMapping("/billList")
 	@CacheLock("bill-billList")//自定义防止重复提交
-	@ApiImplicitParams({
-			@ApiImplicitParam(name = "token", value = "防止表单重复的唯一口令", required = true, paramType = "query", dataType = "String") })
-	public Boolean addBillList(String token, @Validated Bill bill) {
+	public Boolean addBillList(@Validated Bill bill) {
 		boolean result=this.billService.insert(bill);
 		return result;
 	}

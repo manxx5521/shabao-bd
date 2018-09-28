@@ -9,14 +9,6 @@ import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author manxx
- * @since 2018-08-21
- */
 @TableName("td_ui_bill")
 @ApiModel(description="单据")
 public class Bill implements Serializable {
