@@ -2,7 +2,7 @@ package com.xiaoshabao.bill.bd.dto;
 
 import java.util.List;
 
-import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 public class PageDataAnt {
 	

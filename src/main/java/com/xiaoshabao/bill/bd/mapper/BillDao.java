@@ -1,7 +1,7 @@
 package com.xiaoshabao.bill.bd.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.xiaoshabao.bill.bd.entity.Bill;
-import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
  * <p>

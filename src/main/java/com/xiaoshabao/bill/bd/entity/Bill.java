@@ -1,13 +1,13 @@
 package com.xiaoshabao.bill.bd.entity;
 
-import com.baomidou.mybatisplus.annotations.TableName;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 @TableName("td_ui_bill")
 @ApiModel(description="单据")

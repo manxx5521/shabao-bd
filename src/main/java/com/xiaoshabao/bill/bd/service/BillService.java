@@ -1,7 +1,7 @@
 package com.xiaoshabao.bill.bd.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.xiaoshabao.bill.bd.entity.Bill;
-import com.baomidou.mybatisplus.service.IService;
 
 /**
  * <p>
