@@ -51,7 +51,6 @@ public class BillController {
 	@PostMapping("/billList")
 //	@CacheLock("bill-billList")//自定义防止重复提交
 	public Boolean addBillList(/*@Validated */@RequestBody Bill bill,HttpServletRequest request) {
-		
 		boolean result=this.billService.save(bill);
 		return result;
 	}

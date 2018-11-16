@@ -1,39 +1,49 @@
 package com.xiaoshabao.bill.bd.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 
-import javax.validation.constraints.NotEmpty;
-
-import com.baomidou.mybatisplus.annotation.TableName;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author manxx
+ * @since 2018-10-31
+ */
 @TableName("td_ui_bill")
-@ApiModel(description="单据")
 public class Bill implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @ApiModelProperty(value="单据id",example="CS001")
+
+    /**
+     * 单据主键
+     */
     private String billId;
-    
-    @ApiModelProperty(value="单据名字",example="测试单据名称")
-    @NotEmpty(message="单据名字不能为空")
+
+    /**
+     * 单据名称
+     */
     private String billName;
 
     /**
      * 分类
      */
-    @ApiModelProperty(value="分类",example="TEST")
     private String billClass;
 
-    @ApiModelProperty(value="使用的单据引擎",example="simple")
+    /**
+     * 使用引擎
+     */
     private String billEngine;
 
-    @ApiModelProperty(value="排序",example="100")
+    /**
+     * 排序
+     */
     private Integer orderNo;
 
-    @ApiModelProperty(value="状态",example="1")
+    /**
+     * 状态
+     */
     private Integer state;
 
     public String getBillId() {
