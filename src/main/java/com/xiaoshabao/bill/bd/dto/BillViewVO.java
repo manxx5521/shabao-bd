@@ -3,7 +3,7 @@ package com.xiaoshabao.bill.bd.dto;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BillViewDto {
+public class BillViewVO {
 	
 	private Map<String,Object> billInfo=new HashMap<String,Object>();
 

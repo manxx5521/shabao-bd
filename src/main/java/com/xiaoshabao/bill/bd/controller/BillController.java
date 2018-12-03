@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.xiaoshabao.bill.bd.dto.BillViewDto;
+import com.xiaoshabao.bill.bd.dto.BillViewVO;
 import com.xiaoshabao.bill.bd.dto.PageDataAnt;
 import com.xiaoshabao.bill.bd.dto.SQLContants;
 import com.xiaoshabao.bill.bd.entity.Bill;
@@ -60,13 +60,13 @@ public class BillController {
 	@ApiOperation(value = "单据信息", notes = "返回单据配置信息")
 	@GetMapping("/billView")
 	@ApiImplicitParam(name="billId",value="单据主键",paramType="query",required=true,example="CS001")
-	public BillViewDto getBillView(String billId) {
+	public BillViewVO getBillView(String billId) {
 		
-		BillViewDto dto=new BillViewDto();
+		BillViewVO vo=new BillViewVO();
 		Page<Bill> page = new Page<Bill>();
 		billService.page(page, new QueryWrapper<Bill>().orderByAsc(SQLContants.ORDER_NO_STR));
 		
-		return dto;
+		return vo;
 	}
 	
 	
