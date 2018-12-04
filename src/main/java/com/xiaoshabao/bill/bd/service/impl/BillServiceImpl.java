@@ -1,21 +1,20 @@
 package com.xiaoshabao.bill.bd.service.impl;
 
-import org.springframework.stereotype.Service;
-
-import com.xiaoshabao.base.mybatis.service.impl.BaseServiceMybatisImpl;
 import com.xiaoshabao.bill.bd.entity.Bill;
-import com.xiaoshabao.bill.bd.mapper.BillDao;
-import com.xiaoshabao.bill.bd.service.BillService;
+import com.xiaoshabao.bill.bd.mapper.BillMapper;
+import com.xiaoshabao.bill.bd.service.IBillService;
+import com.xiaoshabao.base.mybatis.service.impl.BaseServiceMybatisImpl;
+import org.springframework.stereotype.Service;
 
 /**
  * <p>
- *  服务实现类
+ * 单据 服务实现类
  * </p>
  *
  * @author manxx
- * @since 2018-08-21
+ * @since 2018-12-04
  */
 @Service
-public class BillServiceImpl extends BaseServiceMybatisImpl<BillDao, Bill> implements BillService {
+public class BillServiceImpl extends BaseServiceMybatisImpl<BillMapper, Bill> implements IBillService {
 
 }

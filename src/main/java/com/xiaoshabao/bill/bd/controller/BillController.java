@@ -16,7 +16,7 @@ import com.xiaoshabao.bill.bd.dto.BillViewVO;
 import com.xiaoshabao.bill.bd.dto.PageDataAnt;
 import com.xiaoshabao.bill.bd.dto.SQLContants;
 import com.xiaoshabao.bill.bd.entity.Bill;
-import com.xiaoshabao.bill.bd.service.BillService;
+import com.xiaoshabao.bill.bd.service.IBillService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiOperation;
 public class BillController {
 
 	@Autowired
-	private BillService billService;
+	private IBillService billService;
 
 	@ApiOperation(value = "单据列表", notes = "返回排序的单据列表")
 	@GetMapping("/billList")

@@ -1,16 +1,16 @@
 package com.xiaoshabao.bill.bd.service;
 
+import com.xiaoshabao.bill.bd.entity.List;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.xiaoshabao.bill.bd.entity.Bill;
 
 /**
  * <p>
- *  服务类
+ * 列表视图 服务类
  * </p>
  *
  * @author manxx
- * @since 2018-08-21
+ * @since 2018-12-04
  */
-public interface BillService extends IService<Bill> {
+public interface IListService extends IService<List> {
 
 }

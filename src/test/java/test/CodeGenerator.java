@@ -26,7 +26,7 @@ public class CodeGenerator {
 	/**父级包名*/
 	public final static String BASE_PACKAGE_PARENT="com.xiaoshabao.bill";
 	/**表名前缀，转换时会自动去除*/
-	public final static String[] TABLE_PREFIX= { "td_m_", "td_ui_","td_" };
+	public final static String[] TABLE_PREFIX= { "ui_"};
 	
 	
 	
@@ -97,6 +97,7 @@ public class CodeGenerator {
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setRestControllerStyle(true);
+        strategy.setSuperEntityClass("com.xiaoshabao.bill.bd.entity.BaseEntity");
         strategy.setSuperServiceImplClass("com.xiaoshabao.base.mybatis.service.impl.BaseServiceMybatisImpl");
         strategy.setInclude(scanner("表名"));
 //        strategy.setSuperEntityColumns("id");//公共字段

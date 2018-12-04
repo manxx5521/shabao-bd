@@ -5,11 +5,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
- *  服务类
+ * 单据 服务类
  * </p>
  *
  * @author manxx
- * @since 2018-10-31
+ * @since 2018-12-04
  */
 public interface IBillService extends IService<Bill> {
 
