@@ -3,6 +3,8 @@ package com.xiaoshabao.bill.bd.entity;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import com.baomidou.mybatisplus.annotation.Version;
+
 /**
  * <p>
  *	通用实体字段
@@ -27,6 +29,7 @@ public class BaseEntity implements Serializable {
     /**
      * 更新的版本，锁
      */
+    @Version
     private Long lockVersion;
 
     /**

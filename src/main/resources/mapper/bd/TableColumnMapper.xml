@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoshabao.bill.bd.mapper.TableColumnMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xiaoshabao.bill.bd.entity.TableColumn">
+        <id column="table_id" property="tableId" />
+        <result column="field_name" property="fieldName" />
+        <result column="field_desc" property="fieldDesc" />
+        <result column="field_type" property="fieldType" />
+        <result column="field_attr" property="fieldAttr" />
+        <result column="field_length" property="fieldLength" />
+        <result column="field_decimal" property="fieldDecimal" />
+        <result column="primary" property="primary" />
+        <result column="required" property="required" />
+        <result column="reference" property="reference" />
+        <result column="ref_table" property="refTable" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        table_id, field_name, field_desc, field_type, field_attr, field_length, field_decimal, primary, required, reference, ref_table, remark
+    </sql>
+
+</mapper>

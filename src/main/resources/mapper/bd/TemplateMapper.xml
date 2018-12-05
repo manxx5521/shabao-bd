@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoshabao.bill.bd.mapper.TemplateMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xiaoshabao.bill.bd.entity.Template">
+        <id column="template_id" property="templateId" />
+    <result column="version" property="version" />
+    <result column="order_no" property="orderNo" />
+    <result column="lock_version" property="lockVersion" />
+    <result column="update_time" property="updateTime" />
+        <result column="template_name" property="templateName" />
+        <result column="table_id" property="tableId" />
+        <result column="template_type" property="templateType" />
+        <result column="visible" property="visible" />
+        <result column="col_count" property="colCount" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        version,
+        order_no,
+        lock_version,
+        update_time,
+        template_id, template_name, table_id, template_type, visible, col_count, remark
+    </sql>
+
+</mapper>

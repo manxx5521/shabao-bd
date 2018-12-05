@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoshabao.bill.bd.mapper.ListButtonMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xiaoshabao.bill.bd.entity.ListButton">
+        <id column="list_id" property="listId" />
+    <result column="version" property="version" />
+    <result column="order_no" property="orderNo" />
+    <result column="lock_version" property="lockVersion" />
+    <result column="update_time" property="updateTime" />
+        <result column="button_id" property="buttonId" />
+        <result column="label" property="label" />
+        <result column="used" property="used" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        version,
+        order_no,
+        lock_version,
+        update_time,
+        list_id, button_id, label, used
+    </sql>
+
+</mapper>

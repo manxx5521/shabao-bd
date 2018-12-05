@@ -61,7 +61,6 @@ public class BillController {
 	@GetMapping("/billView")
 	@ApiImplicitParam(name="billId",value="单据主键",paramType="query",required=true,example="CS001")
 	public BillViewVO getBillView(String billId) {
-		
 		BillViewVO vo=new BillViewVO();
 		Page<Bill> page = new Page<Bill>();
 		billService.page(page, new QueryWrapper<Bill>().orderByAsc(SQLContants.ORDER_NO_STR));

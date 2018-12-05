@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoshabao.bill.bd.mapper.TemplateElementMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xiaoshabao.bill.bd.entity.TemplateElement">
+    <result column="version" property="version" />
+    <result column="order_no" property="orderNo" />
+    <result column="lock_version" property="lockVersion" />
+    <result column="update_time" property="updateTime" />
+        <result column="template_id" property="templateId" />
+        <result column="field_name" property="fieldName" />
+        <result column="element_id" property="elementId" />
+        <result column="label" property="label" />
+        <result column="ext_params" property="extParams" />
+        <result column="default_value" property="defaultValue" />
+        <result column="required" property="required" />
+        <result column="max_length" property="maxLength" />
+        <result column="min_length" property="minLength" />
+        <result column="read_only" property="readOnly" />
+        <result column="display" property="display" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        version,
+        order_no,
+        lock_version,
+        update_time,
+        template_id, field_name, element_id, label, ext_params, default_value, required, max_length, min_length, read_only, display, remark
+    </sql>
+
+</mapper>

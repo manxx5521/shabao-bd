@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoshabao.bill.bd.mapper.ButtonMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xiaoshabao.bill.bd.entity.Button">
+        <id column="button_id" property="buttonId" />
+        <result column="button_name" property="buttonName" />
+        <result column="button_type" property="buttonType" />
+        <result column="image_id" property="imageId" />
+        <result column="button_frame" property="buttonFrame" />
+        <result column="order_no" property="orderNo" />
+        <result column="used" property="used" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        button_id, button_name, button_type, image_id, button_frame, order_no, used
+    </sql>
+
+</mapper>
