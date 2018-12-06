@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -17,6 +18,8 @@ import com.xiaoshabao.bill.bd.dto.PageDataAnt;
 import com.xiaoshabao.bill.bd.dto.SQLContants;
 import com.xiaoshabao.bill.bd.entity.Bill;
 import com.xiaoshabao.bill.bd.service.IBillService;
+import com.xiaoshabao.bill.bd.service.IListViewService;
+import com.xiaoshabao.bill.bd.util.BillBeanUtil;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -38,6 +41,8 @@ public class BillController {
 
 	@Autowired
 	private IBillService billService;
+	@Autowired
+	private IListViewService listViewService;
 
 	@ApiOperation(value = "单据列表", notes = "返回排序的单据列表")
 	@GetMapping("/billList")
@@ -59,12 +64,16 @@ public class BillController {
 	
 	@ApiOperation(value = "单据信息", notes = "返回单据配置信息")
 	@GetMapping("/billView")
-	@ApiImplicitParam(name="billId",value="单据主键",paramType="query",required=true,example="CS001")
-	public BillViewVO getBillView(String billId) {
+	@ApiImplicitParam(name="billId",value="单据主键",paramType="query",required=true,example="100")
+	public BillViewVO getBillView(@RequestParam String billId) {
+		Bill bill=billService.getById(billId);
+		if(bill==null) {
+			return BillViewVO.fail("当前单据id"+billId+"不存在");
+		}
 		BillViewVO vo=new BillViewVO();
-		Page<Bill> page = new Page<Bill>();
-		billService.page(page, new QueryWrapper<Bill>().orderByAsc(SQLContants.ORDER_NO_STR));
+		BillBeanUtil.copy(bill, vo);
 		
+		listViewService.loadListView(vo);
 		return vo;
 	}
 	

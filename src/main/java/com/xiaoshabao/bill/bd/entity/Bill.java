@@ -2,6 +2,7 @@ package com.xiaoshabao.bill.bd.entity;
 
 import java.io.Serializable;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 /**
@@ -20,6 +21,7 @@ public class Bill extends BaseEntity implements Serializable {
     /**
      * 单据主键
      */
+    @TableId
     private Long billId;
 
     /**

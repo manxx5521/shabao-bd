@@ -9,10 +9,10 @@ import com.xiaoshabao.bill.bd.entity.BaseEntity;
  * </p>
  *
  * @author manxx
- * @since 2018-12-05
+ * @since 2018-12-06
  */
-@TableName("ui_list")
-public class List extends BaseEntity {
+@TableName("ui_list_view")
+public class ListView extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -72,7 +72,6 @@ public class List extends BaseEntity {
     public void setBillId(Long billId) {
         this.billId = billId;
     }
-    
     public Long getSearchId() {
         return searchId;
     }
@@ -104,7 +103,7 @@ public class List extends BaseEntity {
 
     @Override
     public String toString() {
-        return "List{" +
+        return "ListView{" +
         "listId=" + listId +
         ", listName=" + listName +
         ", billId=" + billId +

@@ -97,8 +97,8 @@ public class CodeGenerator {
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setRestControllerStyle(true);
-//        strategy.setSuperEntityClass("com.xiaoshabao.bill.bd.entity.BaseEntity");
-//        strategy.setSuperEntityColumns("version","order_no","lock_version","update_time");//设置实体父类公共字段
+        strategy.setSuperEntityClass("com.xiaoshabao.bill.bd.entity.BaseEntity");
+        strategy.setSuperEntityColumns("version","order_no","lock_version","update_time");//设置实体父类公共字段
         
         strategy.setSuperServiceImplClass("com.xiaoshabao.base.mybatis.service.impl.BaseServiceMybatisImpl");
         strategy.setInclude(scanner("表名"));

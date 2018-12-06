@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author manxx
- * @since 2018-12-04
+ * @since 2018-12-06
  */
 @RestController
-@RequestMapping("/bd/list")
-public class ListController {
+@RequestMapping("/bd/listView")
+public class ListViewController {
 
 }

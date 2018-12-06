@@ -1,7 +1,10 @@
 package com.xiaoshabao.bill.bd.service;
 
-import com.xiaoshabao.bill.bd.entity.Template;
+import java.util.Optional;
+
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiaoshabao.bill.bd.dto.TemplateDto;
+import com.xiaoshabao.bill.bd.entity.Template;
 
 /**
  * <p>
@@ -12,5 +15,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2018-12-05
  */
 public interface ITemplateService extends IService<Template> {
+	
+	/**
+	 * 根据模版加载模版业务数据
+	 * @param templateId
+	 * @return
+	 */
+	Optional<TemplateDto> getTemplateDto(Long templateId,Integer version);
 
 }
