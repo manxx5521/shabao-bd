@@ -2,6 +2,7 @@ package com.xiaoshabao.bill.bd.mapper;
 
 import com.xiaoshabao.bill.bd.entity.Template;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -22,6 +23,6 @@ public interface TemplateMapper extends BaseMapper<Template> {
 	 * @return
 	 */
 	@Select("select * from ui_template where template_id=#{templateId} and version=#{version}")
-	Template getTemplate(Long templateId, Integer version);
+	Template getTemplate(@Param("templateId") Long templateId,@Param("version") Integer version);
 
 }

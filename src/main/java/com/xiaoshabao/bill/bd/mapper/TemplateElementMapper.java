@@ -4,6 +4,7 @@ import com.xiaoshabao.bill.bd.entity.TemplateElement;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -19,6 +20,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 public interface TemplateElementMapper extends BaseMapper<TemplateElement> {
 
 	@Select("select * from ui_template_element where template_id=#{templateId} and version=#{version} order by order_no")
-	List<TemplateElement> getTemplateElementsByTemplateId(Long templateId, Integer version);
+	List<TemplateElement> getTemplateElementsByTemplateId(@Param("templateId") Long templateId,@Param("version")  Integer version);
 
 }

@@ -18,6 +18,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 public interface ListViewMapper extends BaseMapper<ListView> {
 	
 	@Select("select * from ui_list_view where bill_id=#{billId} and version=#{version}")
-	ListView getListViewByBillId(@Param("version") Long billId,Integer version);
+	ListView getListViewByBillId(@Param("billId") Long billId,@Param("version") Integer version);
 
 }
