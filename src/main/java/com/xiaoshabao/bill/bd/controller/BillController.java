@@ -1,5 +1,8 @@
 package com.xiaoshabao.bill.bd.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,16 +85,20 @@ public class BillController {
 	@ApiOperation(value = "保存单据信息", notes = "返回信息")
 	@PostMapping("/billView")
 	@ApiImplicitParam(name="billId",value="单据主键",paramType="query",required=true,example="100")
-	public AjaxResult saveBillView(@RequestParam Long billId,BillSaveData data) {
+	public AjaxResult saveBillView(@RequestParam Long billId) {
+		BillSaveData data=new BillSaveData();
+		data.setBillUpdateType(true);
+		Map<String,Object> billData=new HashMap<String, Object>();
+		billData.put("billId", "100");
+		billData.put("billName", "测试1");
+		data.setBill(billData);
+		
+		
 		Bill bill=billService.getBillById(billId);
 		if(bill==null) {
 			return AjaxResult.fail("当前单据id"+billId+"不存在");
 		}
-		
-		
-		
-		
-		
+		billService.saveBill(billId, data);
 		return AjaxResult.ok("保存成功");
 	}
 	

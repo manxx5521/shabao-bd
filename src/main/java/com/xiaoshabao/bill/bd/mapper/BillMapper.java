@@ -1,6 +1,7 @@
 package com.xiaoshabao.bill.bd.mapper;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.xiaoshabao.bill.bd.entity.Bill;
@@ -20,8 +21,7 @@ public interface BillMapper extends BaseMapper<Bill> {
 	 * @param billId
 	 * @return
 	 */
-//	@Cacheable
-//	@Select("select * from ui_bill where bill_id=#{billId}")
+	@Select("select * from ui_bill where bill_id=#{billId}")
 	Bill getBillById(@Param("billId")Long billId);
 
 }

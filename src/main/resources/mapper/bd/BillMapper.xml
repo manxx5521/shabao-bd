@@ -23,8 +23,4 @@
         bill_id, bill_name, bill_type, status
     </sql>
     
-    <select id="getBillById" resultMap="BaseResultMap" parameterType="long">
-  		select * from ui_bill where bill_id=#{billId}
-	</select>
-
 </mapper>
