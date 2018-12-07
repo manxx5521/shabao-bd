@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.xiaoshabao.base.component.AjaxResult;
+import com.xiaoshabao.bill.bd.dto.BillSaveData;
 import com.xiaoshabao.bill.bd.dto.BillViewVO;
 import com.xiaoshabao.bill.bd.dto.PageDataAnt;
 import com.xiaoshabao.bill.bd.dto.SQLContants;
@@ -65,16 +67,32 @@ public class BillController {
 	@ApiOperation(value = "单据信息", notes = "返回单据配置信息")
 	@GetMapping("/billView")
 	@ApiImplicitParam(name="billId",value="单据主键",paramType="query",required=true,example="100")
-	public BillViewVO getBillView(@RequestParam String billId) {
-		Bill bill=billService.getById(billId);
+	public BillViewVO getBillView(@RequestParam Long billId) {
+		Bill bill=billService.getBillById(billId);
 		if(bill==null) {
 			return BillViewVO.fail("当前单据id"+billId+"不存在");
 		}
 		BillViewVO vo=new BillViewVO();
 		BillBeanUtil.copy(bill, vo);
 		
-		listViewService.loadListView(vo);
+		listViewService.loadListViewD(vo);
 		return vo;
+	}
+	
+	@ApiOperation(value = "保存单据信息", notes = "返回信息")
+	@PostMapping("/billView")
+	@ApiImplicitParam(name="billId",value="单据主键",paramType="query",required=true,example="100")
+	public AjaxResult saveBillView(@RequestParam Long billId,BillSaveData data) {
+		Bill bill=billService.getBillById(billId);
+		if(bill==null) {
+			return AjaxResult.fail("当前单据id"+billId+"不存在");
+		}
+		
+		
+		
+		
+		
+		return AjaxResult.ok("保存成功");
 	}
 	
 	

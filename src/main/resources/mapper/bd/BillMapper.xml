@@ -4,17 +4,27 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.xiaoshabao.bill.bd.entity.Bill">
-        <id column="bill_id" property="billId" />
+    	<id column="bill_id" property="billId" />
+    	<result column="version" property="version" />
+    	<result column="order_no" property="orderNo" />
+    	<result column="lock_version" property="lockVersion" />
+    	<result column="update_time" property="updateTime" />
         <result column="bill_name" property="billName" />
-        <result column="bill_class" property="billClass" />
-        <result column="bill_engine" property="billEngine" />
-        <result column="order_no" property="orderNo" />
-        <result column="state" property="state" />
+        <result column="bill_type" property="billType" />
+        <result column="status" property="status" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        bill_id, bill_name, bill_class, bill_engine, order_no, state
+        version,
+        order_no,
+        lock_version,
+        update_time,
+        bill_id, bill_name, bill_type, status
     </sql>
+    
+    <select id="getBillById" resultMap="BaseResultMap" parameterType="long">
+  		select * from ui_bill where bill_id=#{billId}
+	</select>
 
 </mapper>

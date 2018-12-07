@@ -18,6 +18,6 @@ public interface IListViewService extends IService<ListView> {
 	 * 加载列表视图
 	 * @param vo
 	 */
-	void loadListView(BillViewVO vo);
+	void loadListViewD(BillViewVO vo);
 
 }
