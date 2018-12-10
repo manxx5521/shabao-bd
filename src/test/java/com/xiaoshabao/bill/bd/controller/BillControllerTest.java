@@ -1,11 +1,10 @@
 package com.xiaoshabao.bill.bd.controller;
 
 import static org.junit.Assert.fail;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.HashMap;
@@ -15,6 +14,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.Rollback;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xiaoshabao.bill.bd.dto.BillSaveData;
@@ -60,37 +60,31 @@ public class BillControllerTest extends ControllerTest{
 	@Test
 	public void testGetBillView() {
 		try {
-			given(sqlMapper.updateSQL(BillMapper.class.getName(), SQLContants.Table.BILL_TABLE, null, SQLContants.Table.BILL_ID)).willReturn(1);
-			
-			int i=sqlMapper.updateSQL(BillMapper.class.getName(), SQLContants.Table.BILL_TABLE, null, SQLContants.Table.BILL_ID);
-			System.out.println(i);
-			verify(sqlMapper.updateSQL(BillMapper.class.getName(), SQLContants.Table.BILL_TABLE, null, SQLContants.Table.BILL_ID), Mockito.times(1));
-			
+			String billId="100";
+			mvc.perform(get("/bill/billView").param("billId", billId))
+			.andDo(print())
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.success").value("true"));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail("Not yet implemented");
 		}
 	}
 
+	/**
+	 * 测试保存逻辑路径
+	 */
 	@Test
-	public void testSaveBillView() {
-		String billId="100";
-		BillSaveData data=new BillSaveData();
-		data.setBillUpdateType(true);
-		Map<String,Object> billData=new HashMap<String, Object>();
-		billData.put("billId", billId);
-		billData.put("billName", "测试1");
-		data.setBill(billData);
+	public void testSaveBillView1() {
+		BillSaveData data=getDataSave();
 		String json=JSONObject.toJSONString(data);
 		
 		Mockito.when(sqlMapper.updateSQL(BillMapper.class.getName(), SQLContants.Table.BILL_TABLE, data.getBill(), SQLContants.Table.BILL_ID))
         .thenReturn(1);
 		
-		
-		
 		try {
 			mvc.perform(post("/bill/billView").contentType(MediaType.APPLICATION_JSON)
-					.content(json).param("billId", billId))
+					.content(json).param("billId", data.getBill().get("billId").toString()))
 			.andDo(print())
 			.andExpect(status().isOk());
 			
@@ -100,8 +94,37 @@ public class BillControllerTest extends ControllerTest{
 			e.printStackTrace();
 			fail("Not yet implemented");
 		}
-
-		
+	}
+	
+	/**
+	 * 测试保存逻辑是否能正常保存到数据库
+	 */
+	@Test
+	@Rollback(false)
+	public void testSaveBillView2() {
+		BillSaveData data=getDataSave();
+		String json=JSONObject.toJSONString(data);
+		try {
+			mvc.perform(post("/bill/billView").contentType(MediaType.APPLICATION_JSON)
+					.content(json).param("billId", data.getBill().get("billId").toString()))
+			.andDo(print())
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.success").value("true"));
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail("Not yet implemented");
+		}
+	}
+	
+	private BillSaveData getDataSave() {
+		String billId="100";
+		BillSaveData data=new BillSaveData();
+		data.setBillUpdateType(true);
+		Map<String,Object> billData=new HashMap<String, Object>();
+		billData.put("billId", billId);
+		billData.put("billName", "测试1");
+		data.setBill(billData);
+		return data;
 	}
 
 }

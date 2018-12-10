@@ -9,11 +9,15 @@ import javax.validation.constraints.NotNull;
 import org.apache.ibatis.jdbc.SQL;
 import org.apache.ibatis.mapping.ResultMapping;
 import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.xiaoshabao.base.component.SpringContextHolder;
 import com.xiaoshabao.bill.bd.dto.SQLContants;
 
 public class BillSqlBuilder {
+	
+	private final static Logger logger=LoggerFactory.getLogger(BillSqlBuilder.class);
 
 	/**
 	 * 构造新增实体sql
@@ -38,7 +42,9 @@ public class BillSqlBuilder {
 				sql.VALUES(column, new StringBuffer().append("#{param3.").append(property).append("}").toString());
 			}
 		});
-		return sql.toString();
+		String insertSql=sql.toString();
+		logger.debug(insertSql);
+		return insertSql;
 	}
 	/**
 	 * 构造更新实体sql
@@ -75,7 +81,9 @@ public class BillSqlBuilder {
 		wheres.forEach((k,v)->{
 			sql.WHERE(new StringBuffer().append(v).append("=#{param3.").append(k).append("}").toString());
 		});
-		return sql.toString();
+		String updateSql=sql.toString();
+		logger.debug(updateSql);
+		return updateSql;
 	}
 	
 	/**

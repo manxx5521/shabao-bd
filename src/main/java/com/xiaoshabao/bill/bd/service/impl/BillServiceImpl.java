@@ -2,6 +2,7 @@ package com.xiaoshabao.bill.bd.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.xiaoshabao.base.mybatis.service.impl.BaseServiceMybatisImpl;
 import com.xiaoshabao.bill.bd.dto.BillSaveData;
@@ -30,6 +31,7 @@ public class BillServiceImpl extends BaseServiceMybatisImpl<BillMapper, Bill> im
 	}
 
 	@Override
+	@Transactional
 	public void saveBill(Long billId, BillSaveData data) {
 		if(data.getBillUpdateType()!=null){
 			if(data.getBillUpdateType()){
