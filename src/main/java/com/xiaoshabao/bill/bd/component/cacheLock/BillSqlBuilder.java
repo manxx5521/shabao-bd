@@ -21,10 +21,9 @@ public class BillSqlBuilder {
 
 	/**
 	 * 构造新增实体sql
-	 * @param mapper
-	 * @param tableName
-	 * @param data
-	 * @param whereColumns
+	 * @param mapper 想要构造的mapper，通过此mapper获得实体类和数据库对应的resultMap
+	 * @param tableName 想要更新的表名
+	 * @param data 数据，存储值
 	 * @return
 	 */
 	public String insertSQL(String mapperName,String tableName,@NotNull Map<String, Object> data) {
@@ -48,10 +47,10 @@ public class BillSqlBuilder {
 	}
 	/**
 	 * 构造更新实体sql
-	 * @param mapper
-	 * @param tableName
-	 * @param data
-	 * @param whereColumns
+	 * @param mapper 想要构造的mapper，通过此mapper获得实体类和数据库对应的resultMap
+	 * @param tableName 想要更新的表名
+	 * @param data 数据，存储值
+	 * @param whereColumns 构造where条件的列（填写数据库列名）
 	 * @return
 	 */
 	public String updateSQL(String mapperName,String tableName,@NotNull Map<String, Object> data,String... whereColumns) {

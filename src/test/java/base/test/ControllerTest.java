@@ -1,4 +1,4 @@
-package com.xiaoshabao.bill.bd.controller;
+package base.test;
 
 import org.junit.Before;
 import org.junit.runner.RunWith;

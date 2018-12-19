@@ -22,6 +22,8 @@ import com.xiaoshabao.bill.bd.dto.SQLContants;
 import com.xiaoshabao.bill.bd.mapper.BillMapper;
 import com.xiaoshabao.bill.bd.mapper.DynamicSqlMapper;
 
+import base.test.ControllerTest;
+
 public class BillControllerTest extends ControllerTest{
 	//模拟不执行具体方法
 	@MockBean
