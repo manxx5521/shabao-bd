@@ -20,7 +20,7 @@ public class DynamicSqlMapperTest extends MapperTest{
 	private DynamicSqlMapper sqlMapper;
 
 	@Test
-	public void test01_testInsertSQL() {
+	public void test01_insertSQL() {
 		String billId="101";
 		Map<String,Object> billData=new HashMap<String, Object>();
 		billData.put("billId", billId);
@@ -31,12 +31,21 @@ public class DynamicSqlMapperTest extends MapperTest{
 	}
 
 	@Test
-	public void test02_testUpdateSQL() {
+	public void test02_updateSQL() {
 		String billId="101";
 		Map<String,Object> billData=new HashMap<String, Object>();
 		billData.put("billId", billId);
 		billData.put("billName", "测试2");
 		int i=sqlMapper.updateSQL(BillMapper.class.getName(), SQLContants.Table.BILL_TABLE, billData, SQLContants.Table.BILL_ID);
+		assertThat(i).isEqualTo(1);
+	}
+	
+	@Test
+	public void test03_deleteSQL() {
+		String billId="101";
+		Map<String,Object> billData=new HashMap<String, Object>();
+		billData.put("billId", billId);
+		int i=sqlMapper.deleteSQL(BillMapper.class.getName(), SQLContants.Table.BILL_TABLE, billData, SQLContants.Table.BILL_ID);
 		assertThat(i).isEqualTo(1);
 	}
 

@@ -21,7 +21,7 @@ public class BillSqlBuilder {
 
 	/**
 	 * 构造新增实体sql
-	 * @param mapper 想要构造的mapper，通过此mapper获得实体类和数据库对应的resultMap
+	 * @param mapperName 想要构造的mapper，通过此mapper获得实体类和数据库对应的resultMap
 	 * @param tableName 想要更新的表名
 	 * @param data 数据，存储值
 	 * @return
@@ -34,7 +34,7 @@ public class BillSqlBuilder {
 			}
 		};
 		
-		getResultMapping(mapperName).forEach(mapping->{
+		this.getResultMapping(mapperName).forEach(mapping->{
 			String property=mapping.getProperty();
 			String column=mapping.getColumn();
 			if(data.containsKey(property)){
@@ -47,7 +47,7 @@ public class BillSqlBuilder {
 	}
 	/**
 	 * 构造更新实体sql
-	 * @param mapper 想要构造的mapper，通过此mapper获得实体类和数据库对应的resultMap
+	 * @param mapperName 想要构造的mapper，通过此mapper获得实体类和数据库对应的resultMap
 	 * @param tableName 想要更新的表名
 	 * @param data 数据，存储值
 	 * @param whereColumns 构造where条件的列（填写数据库列名）
@@ -62,7 +62,7 @@ public class BillSqlBuilder {
 		};
 		
 		Map<String,String> wheres=new HashMap<String, String>();
-		getResultMapping(mapperName).forEach(mapping->{
+		this.getResultMapping(mapperName).forEach(mapping->{
 			String property=mapping.getProperty();
 			String column=mapping.getColumn();
 			
@@ -83,6 +83,34 @@ public class BillSqlBuilder {
 		String updateSql=sql.toString();
 		logger.debug(updateSql);
 		return updateSql;
+	}
+	
+	/**
+	 * 构造删除实体sql
+	 * @param mapperName 想要构造的mapper，通过此mapper获得实体类和数据库对应的resultMap
+	 * @param tableName 想要更新的表名
+	 * @param data 数据，存储值
+	 * @param whereColumns 构造where条件的列（填写数据库列名）
+	 * @return
+	 */
+	public String deleteSQL(String mapperName,String tableName,@NotNull Map<String, Object> data,String... whereColumns) {
+		
+		SQL sql = new SQL() {{
+			DELETE_FROM(tableName);
+		}};
+		
+		this.getResultMapping(mapperName).forEach(mapping->{
+			String property=mapping.getProperty();
+			String column=mapping.getColumn();
+			for(String where:whereColumns){
+				if(where.equals(column)){
+					sql.WHERE(new StringBuffer().append(column).append("=#{param3.").append(property).append("}").toString());
+				}
+			}
+		});
+		String deleteSql=sql.toString();
+		logger.debug(deleteSql);
+		return deleteSql;
 	}
 	
 	/**
