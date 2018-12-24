@@ -5,7 +5,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.UpdateProvider;
 
-import com.xiaoshabao.bill.bd.component.cacheLock.BillSqlBuilder;
+import com.xiaoshabao.bill.bd.component.BillSqlBuilder;
 
 public interface DynamicSqlMapper {
 	

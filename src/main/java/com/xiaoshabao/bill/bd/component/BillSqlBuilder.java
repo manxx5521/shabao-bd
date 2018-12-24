@@ -1,4 +1,4 @@
-package com.xiaoshabao.bill.bd.component.cacheLock;
+package com.xiaoshabao.bill.bd.component;
 
 import java.util.HashMap;
 import java.util.List;
