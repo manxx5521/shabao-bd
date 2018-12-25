@@ -26,7 +26,7 @@ public class CodeGenerator {
 	/**父级包名*/
 	public final static String BASE_PACKAGE_PARENT="com.xiaoshabao.bill";
 	/**表名前缀，转换时会自动去除*/
-	public final static String[] TABLE_PREFIX= { "ui_"};
+	public final static String[] TABLE_PREFIX= { "sys_", "ui_"};
 
     public static void main(String[] args) {
     	
